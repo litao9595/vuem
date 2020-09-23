@@ -21,8 +21,34 @@ export default {
       mydata:1
     }
   },
-  created(){
-    console.log(config)
+  //创建阶段的生命周期
+  beforeCreate:function(){
+      console.log("实例化前");
+  },
+  created:function(){
+      console.log("编译完成");
+  },
+  beforeMount:function(){
+      this.su=2;
+      console.log("挂载前")
+  },
+  mounted:function(){
+      let _dx=document.getElementById("cc");
+      console.log("挂载后")
+  },
+  //运行阶段生命周期
+  beforeUpdate:function(){
+      console.log("更新前")
+  },
+  updated:function(){
+      console.log("更新后")
+  },
+  //销毁阶段生命周期
+  beforeDestroy:function(){
+      console.log("销毁前")
+  },
+  destroyed:function(){
+      console.log("销毁后")
   },
   methods:{
     ...mapActions(['increment','reduce','resumeList','dataAppId']),
